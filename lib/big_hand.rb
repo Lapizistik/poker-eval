@@ -32,7 +32,8 @@ module Poker
       suits = cards.group_by { |c| c.suit }.values.select { |g| g.size > 4 }
 
       # do we have any straight flush?
-      sf = suits.map { |g| seq(g) }.compact.sort_by { |s| s[0].rank }.last
+      # find the highest one
+      sf = suits.map { |g| seq(g) }.compact.sort_by { |s| s[0] }.last
       return compute_hand(ROYAL, sf, cards - sf) if sf
 
       # let's go for n-of-a-kind now:
