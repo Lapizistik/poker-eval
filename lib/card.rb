@@ -9,14 +9,13 @@ module Poker
   
   Ranks = {
     l: 1,  # low rank ace
-    t: 10, # to be able to write 10 with one char
+    X: 10, # to be able to write 10 with one char
     j: 11, # jack
     d: 12, # dame
     k: 13, # =>  king
     a: 14  # ace
   }
   RRanks = Ranks.invert
-  RRanks.delete(10)
   
   class Card
     include Comparable
